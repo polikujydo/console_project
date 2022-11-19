@@ -1,4 +1,16 @@
-const numberOfFilms = +prompt ("How many movies have u already watched?", ' ');
+let numberOfFilms;
+
+function start (){
+    numberOfFilms = prompt ("How many movies have u already watched?", ' ');
+
+    while (numberOfFilms == " " || numberOfFilms == null || isNaN(numberOfFilms)){
+        numberOfFilms = prompt ("How many movies have u already watched?", ' ');
+    }
+}
+
+start();
+
+
 const personalMovieDB = {
     "count" : numberOfFilms,
     "movies" : {},
@@ -8,7 +20,8 @@ const personalMovieDB = {
 };
 
 
-    for (let i = 0; i < 2; i++){
+    function rememberMyFilms () {
+        for (let i = 0; i < 2; i++){
         const a = prompt("Your last viewed movie?",' '),
               b = prompt("What is ur grade?", ' ');
 
@@ -18,14 +31,34 @@ const personalMovieDB = {
             i--;
         }
     }
+}
 
-    if (personalMovieDB.count < 10){
+rememberMyFilms();
+
+    function detectLevel () {
+        if (personalMovieDB.count < 10){
         console.log('less');
     } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30 ){
         console.log('Normal');
     } else {
         console.log("MovieHunter!");
     }
+}
 
+detectLevel();
 
-console.log(personalMovieDB);
+function showMyDB(hidden){
+    if(!hidden){
+        console.log(personalMovieDB);
+    }
+}
+showMyDB(personalMovieDB.privat);
+
+function writeYourGenres (){
+    for (let i = 1; i <=3; i++){
+        const genre = prompt (`Your favourite genre has a number ${i}` );
+        personalMovieDB.genres[i - 1];
+    }
+}
+
+writeYourGenres();
